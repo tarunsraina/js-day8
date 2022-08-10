@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON DEMO</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    
+        <h1>Concepts : JSON , stringify method and parse method</h1>
+        <h1>You can see both JS and JSON objects in console</h1>
+        <h1 id="users-under-30-headline"></h1>
+        <ul id="users-age-less-than-30"></ul>
+        <br>
+        <h1 id="users-above-30-headline"></h1>
+        <ul id="users-age-greater-than-30"></ul>
+        <br>
+        <br>
+        <br>
+    
+        <center>
+        <input type="button" value="Show users" onClick="showUsers()">
+    </center>
+        <script>
+
+            let users = [{
+                name : "Tarun",
+                age : 22
+            },
+            {
+                name : "Phani",
+                age : 22
+            },
+            {
+                name : "Shreesha",
+                age : 60
+            },
+            {
+                name : "Yadunandan",
+                age : 31
+            },
+            {
+                name : "Pranav",
+                age : 28
+            },
+            {
+                name : "Rachitha",
+                age : 70
+            },
+            {
+                name : "Tushitha",
+                age : 28
+            }
+            ]
+
+            let usersLessThan30 = '';
+
+            let usersGreaterThan30 = '';
+
+
+            for(let i=0;i<users.length;i++){
+
+                if(users[i].age<=30){
+                usersLessThan30 +='<li>'+users[i].name+'</li>'
+                }else{
+                    usersGreaterThan30 +='<li>'+users[i].name+'</li>'
+                }
+
+            }
+
+            function showUsers(){
+                document.getElementById("users-under-30-headline").innerHTML = "Users under age 30:"
+                document.getElementById("users-above-30-headline").innerHTML = "Users above age 30:"
+                document.getElementById("users-age-less-than-30").innerHTML = usersLessThan30;
+                document.getElementById("users-age-greater-than-30").innerHTML = usersGreaterThan30;
+            }
+
+
+             jsonObj = JSON.stringify(users)
+             console.log(jsonObj);
+
+            jsObj = JSON.parse(jsonObj);
+            console.log(jsObj);
+
+        </script>
+  </body>
+</html>

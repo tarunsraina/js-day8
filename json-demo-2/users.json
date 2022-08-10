@@ -1,0 +1,32 @@
+{
+    "users" :
+            [
+                {
+                    "name":"Tarun",
+                    "age":22
+                },
+                {
+                    "name":"Phani",
+                    "age":22
+                },
+                {
+                    "name":"Shreesha",
+                    "age":60
+                },
+                {   
+                    "name":"Yadunandan",
+                    "age":31
+                },
+                {   
+                    "name":"Pranav",
+                    "age":28
+                },
+                {   "name":"Rachitha",
+                    "age":70
+                },
+                {   "name":"Tushitha",
+                    "age":28
+                }
+
+            ]
+}

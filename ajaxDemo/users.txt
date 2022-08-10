@@ -1,0 +1,4 @@
+
+users are "tarun" "hemanth" "anirudh" "usha" "prashanth"
+
+(This text is present in 'users.txt')

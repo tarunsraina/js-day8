@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON DEMO</title>
+  </head>
+  <body>
+    
+        <h1>Concepts : JSON and XMLHttpRequest</h1>
+
+        <h1>DISPLAYING ALL USERS FROM JSON FILE("GET") and DISPLAYING ON CONSOLE</h1>
+
+        <ul id="users-with-age"></ul>
+
+        <input type="button" value="Show users with age" onClick="showUsersWithAge()">
+       
+        <script>
+
+            
+
+            function showUsersWithAge(){
+
+            let xhttp = new XMLHttpRequest();
+            
+
+            xhttp.onload = function(){
+                if(this.readyState==4 && this.status==200)
+                {
+                    let response = xhttp.responseText;
+                    console.log(response);
+                    let parsedToJsObj = JSON.parse(response);
+                    console.log(parsedToJsObj);
+
+                    let output = ''
+                    console.log("response  :"+response)
+                    console.log("length:"+parsedToJsObj.users.length);
+                    let usersWithAge = parsedToJsObj.users;
+
+                    let userDetails = ""
+                    for(let i=0;usersWithAge.length;i++){
+          
+                        let name = (usersWithAge[i]["name"]);
+                        let age = (usersWithAge[i]["age"]);
+
+                        console.log(name+" with age "+age);
+                      
+                     
+                      }
+
+                      
+
+              document.getElementById("users-with-age").innerHTML = output;
+              }            
+            };
+
+            xhttp.open("GET","users.json",true);
+            xhttp.send();
+
+              
+            }
+
+        </script>
+  </body>
+</html>

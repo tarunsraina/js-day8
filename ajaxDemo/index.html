@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON DEMO</title>
+  </head>
+  <body>
+    <center>
+
+        <h1>Concepts : XHR methods and XHR properties</h1>
+
+        <h1>Displaying text using XMLHttpRequest</h1>
+
+    </center>
+
+        <h1 id="text"></h1>
+        <h2 id="text-status"></h2>
+
+
+        <input type="button" value="Display Text from 'hello.txt' !" onClick="displayText()">
+
+        <br>
+        <br>
+        <br>
+
+        <h1 id="user-text"></h1>
+        <h2 id="user-status"></h2>
+        <br>
+        
+
+        <input type="button" value="Display Text from 'users.txt' !" onClick="displayUsers()">
+
+        <br>
+        <br>
+        <br>
+
+        <h1 id="bye-text"></h1>
+        <h2 id="bye-status"></h2>
+
+        <input type="button" value="Display Text from 'bye.txt' !" onClick="displayByeMsg()">
+       
+        <script>
+
+            
+
+            function displayText(){
+
+            let xhttp = new XMLHttpRequest();
+        
+            xhttp.onload = function(){
+                if(this.readyState==4 && this.status==200)
+                {
+                    let response = xhttp.responseText;
+                    document.getElementById("text").innerHTML = response ;
+                    document.getElementById("text-status").innerHTML = "Status code is "+this.status+" and status text is "+this.statusText;
+                }            
+            };
+
+            xhttp.open("GET","hello.txt",true);
+            xhttp.send();
+            }
+
+            function displayUsers(){
+
+                let xhttp = new XMLHttpRequest();
+
+                xhttp.onload = function(){
+                    if(this.readyState==4 && this.status==200)
+                    {
+                        let response = xhttp.responseText;
+                        document.getElementById("user-text").innerHTML = response;
+                        document.getElementById("user-status").innerHTML = "Status code is "+this.status+" and status text is "+this.statusText;
+                    }            
+                };
+
+                xhttp.open("GET","users.txt",true);
+                xhttp.send();
+
+            }
+
+
+            function displayByeMsg(){
+
+                let xhttp = new XMLHttpRequest();
+
+                xhttp.onload = function(){
+                    if(this.readyState==4 && this.status==200)
+                    {
+                        let response = xhttp.responseText;
+                        document.getElementById("bye-text").innerHTML = response;
+                        document.getElementById("bye-status").innerHTML = "Status code is "+this.status+" and status text is "+this.statusText;
+                    }            
+                };
+
+                xhttp.open("GET","bye.txt",true);
+                xhttp.send();
+
+            }
+
+        </script>
+  </body>
+</html>
